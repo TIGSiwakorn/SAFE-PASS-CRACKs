@@ -1,0 +1,63 @@
+body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for the safe/keypad */
+        .safe-container {
+            perspective: 1000px;
+        }
+        .safe-door {
+            width: 300px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            transform-origin: left;
+        }
+        .safe-door.unlocked {
+            transform: rotateY(-120deg);
+        }
+        .safe-front, .safe-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 1.5rem; /* rounded-3xl */
+        }
+        .safe-front {
+            background: linear-gradient(145deg, #5a5a5a, #3c3c3c);
+            box-shadow: 10px 10px 30px #2a2a2a, -10px -10px 30px #6a6a6a;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 2rem;
+        }
+        .safe-back {
+            background: #4a4a4a;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .handle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #e0e0e0, #a0a0a0);
+            box-shadow: inset 0 0 10px #707070, 0 0 15px #202020;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .handle-center {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #333;
+        }
+        .keypad-display {
+            font-family: 'Courier New', Courier, monospace;
+            background: #2d2d2d;
+            border: 2px solid #777;
+            box-shadow: inset 0 0 10px #000;
+        }

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-m">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brute Force PIN Cracker</title>
+    <!-- Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="sss.css">
+     <script src="algorithm.js" defer></script> 
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class_id="app-container" class="w-full max-w-lg text-center">
+        
+        <h1 class="text-4xl font-bold mb-2 text-cyan-400">Brute Force Algorithm</h1>
+        <h2 class="text-2xl font-light mb-6 text-gray-300">"TIGGER SAFE"</h2>
+        
+        
+        <!-- Main Card -->
+        <div class="bg-gray-800 rounded-3xl shadow-2xl p-6 md:p-10">
+
+            <!-- Safe Visual -->
+            <div class="safe-container flex justify-center mb-8">
+                <div id="safe-door" class="safe-door rounded-3xl">
+                    <!-- Safe Front -->
+                    <div class="safe-front">
+                        <div class="handle">
+                            <div class="handle-center"></div>
+                        </div>
+                        <div id="status-light" class="w-10 h-10 rounded-full bg-red-600 shadow-lg transition-all duration-300 border-4 border-gray-900"></div>
+                        <div class="text-xs text-gray-400">STATUS</div>
+                    </div>
+                    <!-- Safe Back (Inside) -->
+                    <div class="safe-back">
+                        <span class="text-4xl" role="img" aria-label="money-bag">💰</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div classs="controls" id="controls">
+                <label for="pin-length" class="block mb-2 text-sm font-medium text-gray-400">Select PIN Length:</label>
+                <select id="pin-length" class="bg-gray-700 border border-gray-600 text-white text-lg rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-3 mb-4">
+                    <option value="3">3 Digits (1,000 combinations)</option>
+                    <option value="4">4 Digits (10,000 combinations)</option>
+                </select>
+
+                <!-- New Feature: Custom PIN Input -->
+                <label for="custom-pin" class="block mt-4 mb-2 text-sm font-medium text-gray-400">Enter PIN to Crack:</label>
+                <input type="text" id="custom-pin" class="bg-gray-700 border border-gray-600 text-white text-lg rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-3" placeholder="e.g., 123" maxlength="4">
+                <p id="pin-error" class="text-red-400 text-sm mt-2 text-left hidden">PIN must be 3 digits.</p>
+                
+                <button id="start-button" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg text-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 mt-6">
+                    Start Brute Force Attack
+                </button>
+            </div>
+
+            <!-- Cracking Progress -->
+            <div id="progress-container" class="hidden text-center">
+                <div class="mb-4">
+                    <div class="text-gray-400 text-sm mb-1">Trying PIN:</div>
+                    <div id="current-guess" class="text-5xl font-bold text-cyan-400 tracking-widest keypad-display rounded-lg p-4">
+                        000
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="text-gray-400 text-sm mb-1">Correct PIN:</div>
+                    <div id="correct-pin-display" class="text-2xl font-bold text-red-500 tracking-widest">
+                        ???
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <div class="text-gray-400 text-sm mb-1">Guesses Made:</div>
+                    <div id="guess-count" class="text-4xl font-semibold text-white">
+                        0
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Success Message -->
+            <div id="success-message" class="hidden text-center p-6 bg-green-900 rounded-lg border-2 border-green-500">
+                <h3 class="text-3xl font-bold text-green-300 mb-3">CRACKED!</h3>
+                <p class="text-lg text-green-200">
+                    The PIN was <span id="final-pin" class="font-bold text-white text-xl"></span>.
+                </p>
+                <p class="text-lg text-green-200 mt-2">
+                    It took <span id="final-count" class="font-bold text-white text-xl"></span> guesses.
+                </p>
+                <button id="reset-button" class="mt-6 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all">
+                    Reset
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
